@@ -1,5 +1,5 @@
 # Redux Contact List
-## Project to practice flux archtiture and redux
+## Project to practice flux architecture and redux
 **Techs:** 
 - React
 - Redux
