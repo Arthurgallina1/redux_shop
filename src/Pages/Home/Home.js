@@ -17,18 +17,17 @@ class Home extends Component {
             
         }
 
-        handleAddUser(user) {
+        handleAddUser(id) {
             // const { dispatch } = this.props;
             // dispatch(CartActions.addToCart(user));
-            
-            const { addToCart } = this.props;
-            addToCart(user);
-
+            const { addToCartRequest } = this.props;
+            addToCartRequest(id);            
         };
 
 
         render (){
             const { users } = this.state;
+            const { amount = 0 } = this.state;
             return (
                 <ProductList>
                     {
@@ -36,8 +35,8 @@ class Home extends Component {
                           < li key={user.id}>
                             <strong>{user.name}</strong> 
                             <span>{user.email} </span> 
-                            <button type="button" onClick={() => this.handleAddUser(user)}> <span> Add to List </span> </button>
-
+                            <button type="button" onClick={() => this.handleAddUser(user.id)}> <strong>{ amount[user.name]  }</strong> <span> Add to List </span> </button>
+                            
                           </li>
                         ))
 
@@ -49,8 +48,17 @@ class Home extends Component {
            
         }
 }
+
+const mapStateToProps = state => ({
+    amount: state.cart.reduce((amount, user) => {
+        amount[user.name] = user.amount;
+
+        return amount;
+    },{})
+});
+
 //convert redux actions into comp. props
 const mapDispatchToProps = dispatch => bindActionCreators( CartActions ,dispatch);
 
 //connect returns another function, its been called with Home.
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

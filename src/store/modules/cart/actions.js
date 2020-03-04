@@ -1,7 +1,14 @@
-export function addToCart(user) {
+export function addToCartRequest(id) {
     return {
-        type: 'ADD_TO_CART',
-        user
+        type: 'ADD_TO_CART_REQUEST',
+        id,
+    }
+}
+
+export function addToCartSuccess(user) {
+    return {
+        type: 'ADD_TO_CART_SUCCESS',
+        user,
     }
 }
 
@@ -12,10 +19,12 @@ export function removeFromCart(user) {
     }
 }
 
-export function updateAmount(user, amount ) {
+export function updateAmount(user, amount) {
+        
     return {
         type: 'UPDATE_AMOUNT',
-        name: user.name,
+        user,
         amount
     }
 }
+
