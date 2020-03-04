@@ -16,7 +16,15 @@ export default function cart(state = [], action) {
             //            amount: 1
             //        })
                })
-               
+        case 'ADD_FRIEND':
+               return state = [
+                   ...state, {
+                       ...action.user,
+                       friend: 1
+                   }
+                   ]
+
+
         case 'REMOVE_FROM_CART':
             return produce(state, draft => {
                 const productIndex = draft.findIndex(p => p.name === action.name)

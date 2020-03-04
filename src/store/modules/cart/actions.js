@@ -19,6 +19,13 @@ export function removeFromCart(user) {
     }
 }
 
+export function addfriend(user) {
+    return {
+        type: 'ADD_FRIEND',
+        user
+    }
+}
+
 export function updateAmount(user, amount) {
         
     return {

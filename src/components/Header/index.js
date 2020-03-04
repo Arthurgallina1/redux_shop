@@ -11,6 +11,7 @@ function Header( { cart } ) {
         <Container>
             <Link to ="/"><h3> Logo </h3></Link>
             <Cart to ="/cart"><h3> Contact List ({cart.length}) </h3></Cart>
+            <Cart to ="/friends">Friends</Cart>
 {/* 
             <Cart to="/cart">
                 <>

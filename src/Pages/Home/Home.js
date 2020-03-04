@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ProductList } from './styles';
 import { bindActionCreators } from 'redux'
-import api from '../../services/api'
 import * as CartActions from '../../store/modules/cart/actions';
+import { ProductList } from './styles';
+import api from '../../services/api'
 import { toast } from 'react-toastify';
 
 class Home extends Component {
