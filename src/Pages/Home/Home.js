@@ -4,6 +4,7 @@ import { ProductList } from './styles';
 import { bindActionCreators } from 'redux'
 import api from '../../services/api'
 import * as CartActions from '../../store/modules/cart/actions';
+import { toast } from 'react-toastify';
 
 class Home extends Component {
 
@@ -21,7 +22,10 @@ class Home extends Component {
             // const { dispatch } = this.props;
             // dispatch(CartActions.addToCart(user));
             const { addToCartRequest } = this.props;
-            addToCartRequest(id);            
+            addToCartRequest(id); 
+            toast.success(`${id} added to your contact list!`);
+            this.props.history.push('/cart');
+           
         };
 
 

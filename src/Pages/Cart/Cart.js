@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { Container, ProductTable } from './styles';
 import { bindActionCreators } from 'redux'
 import * as CartActions from '../../store/modules/cart/actions';
-
+import {toast} from 'react-toastify'
 
 function Cart({ total, cart, removeFromCart, updateAmount }) {
 
     function increment(user) {
         
         
-        updateAmount(user, user.amount + 1);
+        updateAmount(user, user.amount + 1)
+        toast.success(`${user.name} added to your contact list!`);
 
     }
 
